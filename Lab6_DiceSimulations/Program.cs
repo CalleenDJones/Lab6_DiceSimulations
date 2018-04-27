@@ -72,16 +72,89 @@ namespace Lab6_DiceSimulations
                     //declare variables for Dice Rolls
                     int rolledNum = DiceRoll(numberSize);
                     int rolledNumTwo = DiceRoll(numberSize);
-
                     Console.WriteLine($"Roll 1:");
                     Console.WriteLine($"------");
                     Console.WriteLine($"{rolledNum}");
                     Console.WriteLine($"{rolledNumTwo}");
 
-                    Console.WriteLine("\n\nFeeling lucky yet? Would you like to play again? Y or N");
+                    //Determine if snake eyes(1,1), Box Car(6,6) and Craps (total of 7 or 11)
+                    //Located great formatting code online via Google search
+                    if (rolledNum == 1 && rolledNumTwo == 1)
+                    {
+                        Console.WriteLine("SNAKE EYES!!");
+                        Console.WriteLine(".-------.");
+                        Console.WriteLine("|       |");
+                        Console.WriteLine("|   o   |");
+                        Console.WriteLine("|       |");
+                        Console.WriteLine("|_______|");
+                        Console.WriteLine();
+                        Console.WriteLine(".-------.");
+                        Console.WriteLine("|       |");
+                        Console.WriteLine("|   o   |");
+                        Console.WriteLine("|       |");
+                        Console.WriteLine("|_______|");
+                        Console.WriteLine();
+                        continue;
+                    }
+                    else if
+                        (rolledNum == 6 && rolledNumTwo == 6)
+                    {
+                         Console.WriteLine("BOX CAR!!");
+                         Console.WriteLine(".-------.");
+                         Console.WriteLine("| o   o |");
+                         Console.WriteLine("| o   o |");
+                         Console.WriteLine("| o   o |");
+                         Console.WriteLine("|_______|");
+                         Console.WriteLine();
+                         Console.WriteLine(".-------.");
+                         Console.WriteLine("| o   o |");
+                         Console.WriteLine("| o   o |");
+                         Console.WriteLine("| o   o |");
+                         Console.WriteLine("|_______|");
+                         Console.WriteLine();
+                    }
+                    else if //Both should total 7
+                            (rolledNum == 6 && rolledNumTwo == 6)
+                    {
+                        Console.WriteLine("BOX CAR & CRAPS!!");
+                        Console.WriteLine(".-------.");
+                        Console.WriteLine("| o   o |");
+                        Console.WriteLine("|       |");
+                        Console.WriteLine("| o   o |");
+                        Console.WriteLine("|_______|");
+                        Console.WriteLine();
+                        Console.WriteLine(".-------.");
+                        Console.WriteLine("|     o |");
+                        Console.WriteLine("|   o   |");
+                        Console.WriteLine("| o     |");
+                        Console.WriteLine("|_______|");
+                        Console.WriteLine();
+                    }
+                    else //Both should total 11
+                        (rolledNum == 5 && rolledNumTwo == 6);
+                    {
+                        Console.WriteLine("CRAPS!!");
+                        Console.WriteLine(".-------.");
+                        Console.WriteLine("| o   o |");
+                        Console.WriteLine("| o   o |");
+                        Console.WriteLine("| o   o |");
+                        Console.WriteLine("|_______|");
+                        Console.WriteLine();
+                        Console.WriteLine(".-------.");
+                        Console.WriteLine("| o   o |");
+                        Console.WriteLine("|   o   |");
+                        Console.WriteLine("| o   o |");
+                        Console.WriteLine("|_______|");
+                        Console.WriteLine();
+                    }
+
+                        Console.WriteLine("\n\nFeeling lucky yet? Would you like to play again? Y or N");
                     Response = Console.ReadLine();
                     if (Response != "y")
-                        return;
+                    {
+                        Console.WriteLine("\nThank you for playing!");
+                    }
+                        return;//exits the program completely
                 }
             }
         }
